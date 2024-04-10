@@ -30,6 +30,18 @@ sed -i 's/user = .*/user = mimi/' config.txt
 # txt生成json
 ./gen -ii config.txt
 
+# 替换7878
+find . -type f -name '*.json' -exec sed -i 's/10001/17878/g' {} +
+find . -type f -name '*.json' -exec sed -i 's/10002/17878/g' {} +
+find . -type f -name '*.json' -exec sed -i 's/10003/17878/g' {} +
+find . -type f -name '*.json' -exec sed -i 's/10004/17878/g' {} +
+find . -type f -name '*.json' -exec sed -i 's/10005/17878/g' {} +
+find . -type f -name '*.json' -exec sed -i 's/10006/17878/g' {} +
+find . -type f -name '*.json' -exec sed -i 's/10007/17878/g' {} +
+find . -type f -name '*.json' -exec sed -i 's/10008/17878/g' {} +
+find . -type f -name '*.json' -exec sed -i 's/10009/17878/g' {} +
+find . -type f -name '*.json' -exec sed -i 's/10010/17878/g' {} +
+
 # 进入/etc/systemd/system目录
 cd /etc/systemd/system
 
