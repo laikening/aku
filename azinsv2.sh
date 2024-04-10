@@ -1,6 +1,18 @@
 #!/bin/bash
 # 安装zip
-apt-get update -y && apt install unzip -y
+apt-get update -y && apt install unzip -y &&
+
+ifconfig eth0:1 10.0.0.11 up
+ifconfig eth0:2 10.0.0.12 up
+ifconfig eth0:3 10.0.0.13 up
+ifconfig eth0:4 10.0.0.14 up
+ifconfig eth0:5 10.0.0.15 up
+ifconfig eth0:6 10.0.0.16 up
+ifconfig eth0:7 10.0.0.17 up
+ifconfig eth0:8 10.0.0.18 up
+ifconfig eth0:9 10.0.0.19 up
+systemctl restart NetworkManager.service
+ifconfig
 
 # 进入/opt目录
 cd /opt
