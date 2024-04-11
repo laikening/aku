@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# 安装zip
+apt-get update -y && apt install unzip -y &&
+
 # 进入/opt目录
 cd /opt
 
