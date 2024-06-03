@@ -1,0 +1,4 @@
+# 修改端口为20001列序
+wget https://xgxray.oss-cn-hongkong.aliyuncs.com/YY/20001.sh
+chmod +x 20001.sh
+./20001.sh
