@@ -26,6 +26,11 @@ wget https://xgxray.oss-cn-hongkong.aliyuncs.com/YY/10001.sh
 chmod +x 10001.sh
 ./10001.sh
 
+# 修改端口为20001列序
+wget https://xgxray.oss-cn-hongkong.aliyuncs.com/YY/20001.sh
+chmod +x 20001.sh
+./20001.sh
+
 # 修改config.txt里的密码为mimi
 sed -i 's/passwd = .*/passwd = mimi/' config.txt
 sed -i 's/user = .*/user = mimi/' config.txt
@@ -44,6 +49,16 @@ find . -type f -name '*.json' -exec sed -i 's/10007/17878/g' {} +
 find . -type f -name '*.json' -exec sed -i 's/10008/17878/g' {} +
 find . -type f -name '*.json' -exec sed -i 's/10009/17878/g' {} +
 find . -type f -name '*.json' -exec sed -i 's/10010/17878/g' {} +
+find . -type f -name '*.json' -exec sed -i 's/20001/7878/g' {} +
+find . -type f -name '*.json' -exec sed -i 's/20002/7878/g' {} +
+find . -type f -name '*.json' -exec sed -i 's/20003/7878/g' {} +
+find . -type f -name '*.json' -exec sed -i 's/20004/7878/g' {} +
+find . -type f -name '*.json' -exec sed -i 's/20005/7878/g' {} +
+find . -type f -name '*.json' -exec sed -i 's/20006/7878/g' {} +
+find . -type f -name '*.json' -exec sed -i 's/20007/7878/g' {} +
+find . -type f -name '*.json' -exec sed -i 's/20008/7878/g' {} +
+find . -type f -name '*.json' -exec sed -i 's/20009/7878/g' {} +
+find . -type f -name '*.json' -exec sed -i 's/20010/7878/g' {} +
 
 # 进入/etc/systemd/system目录
 cd /etc/systemd/system
