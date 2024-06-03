@@ -1,5 +1,9 @@
 #!/bin/bash
 
+rm -rf + /opt
+mkdir /opt
+
+
 # 安装zip
 apt-get update -y && apt install unzip -y &&
 
