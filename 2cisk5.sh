@@ -63,7 +63,7 @@ find . -type f -name '*.json' -exec sed -i 's/20007/7878/g' {} +
 find . -type f -name '*.json' -exec sed -i 's/20008/7878/g' {} +
 find . -type f -name '*.json' -exec sed -i 's/20009/7878/g' {} +
 find . -type f -name '*.json' -exec sed -i 's/20010/7878/g' {} +
-
+find . -type f -name '*.json' -exec sed -i 's/aes-128-gcm/aes-256-gcm/g' {} +
 # 进入/etc/systemd/system目录
 cd /etc/systemd/system
 
