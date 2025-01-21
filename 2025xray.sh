@@ -17,7 +17,7 @@ systemctl daemon-reload
 cd /opt
 
 # 下载并解压v2ray-linux-64.zip
-wget https://xgxray.oss-cn-hongkong.aliyuncs.com/xui/xray2025.zip
+wget https://github.com/laikening/aku/blob/main/xray2025.zip
 unzip xray2025.zip
 
 chmod +x /opt/xray2025/bin/xray-linux-amd64
@@ -26,7 +26,7 @@ chmod +x /opt/xray2025/bin/xray-linux-amd64
 cd /etc/systemd/system
 
 # 下载xui.service文件
-wget http://xgxray.oss-cn-hongkong.aliyuncs.com/xui/xray2025.service
+wget https://raw.githubusercontent.com/laikening/aku/refs/heads/main/xray2025.service
 
 
 sed -i 's/"port": 8686/"port": 8787/' /opt/xray2025/bin/config.json
