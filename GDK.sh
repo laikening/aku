@@ -1,3 +1,5 @@
+#!/bin/bash
+
 cd  /opt/xray2025/bin/
 find . -type f -name '*.json' -exec sed -i 's/8787/8989/g' {} +
 systemctl daemon-reload
