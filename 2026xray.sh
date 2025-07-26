@@ -1,7 +1,8 @@
 #!/bin/bash
 
 # 安装zip
-apt-get update -y && apt install unzip -y &&
+apt-get update -y
+apt install unzip -y
 
 # 首先，停止 xray 服务
 systemctl stop xray
