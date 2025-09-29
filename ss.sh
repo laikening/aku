@@ -18,21 +18,29 @@ OUTPUT="$(
   ${EXPORT_CMD}
 )"
 
-# 取最后2行并写入临时文件
 LAST_TWO="$(printf '%s\n' "${OUTPUT}" | tail -n 2)"
 printf '%s\n' "${LAST_TWO}" > "${TMP_FILE}"
 
-# 取最后2行中的第1行，清洗为安全文件名（只保留字母数字-_和.，并裁剪长度）
 RAW_FIRST_LINE="$(printf '%s\n' "${LAST_TWO}" | head -n 1)"
-SAFE_FIRST_LINE="$(printf '%s' "${RAW_FIRST_LINE}" | tr -cd 'A-Za-z0-9._- ' | sed 's/[ ]\+/_/g' | cut -c1-80)"
-# 如果清洗后为空，给一个兜底名
-if [ -z "${SAFE_FIRST_LINE}" ]; then
-  SAFE_FIRST_LINE="export_socks5"
-fi
 
-# 用第一行作为 prefix 与 multipart 的 filename
-PREFIX="${SAFE_FIRST_LINE}"
-BASENAME="${SAFE_FIRST_LINE}"
+# 清洗为安全文件名（仅保留字母数字 . _ - 和空格），空格改为 _
+SAFE_FIRST_LINE="$(
+  printf '%s' "${RAW_FIRST_LINE}" \
+  | LC_ALL=C tr -cd '[:alnum:]._ -' \
+  | sed -E 's/[[:space:]]+/_/g' \
+  | sed -E 's/_+/_/g; s/^_+|_+$//g' \
+  | cut -c1-80
+)"
+[ -z "${SAFE_FIRST_LINE}" ] && SAFE_FIRST_LINE="export_socks5"
+
+# 随机10位字母数字
+RAND_SUFFIX="$(tr -dc 'A-Za-z0-9' </dev/urandom | head -c 10 || true)"
+[ -z "${RAND_SUFFIX}" ] && RAND_SUFFIX="$(date +%s%N | sha256sum | cut -c1-10)"
+
+UNIQUE="${SAFE_FIRST_LINE}_${RAND_SUFFIX}"
+
+PREFIX="${UNIQUE}"
+BASENAME="${UNIQUE}"
 
 RESPONSE="$(
   curl -fsS -m 30 -X POST "${UPLOAD_URL}" \
