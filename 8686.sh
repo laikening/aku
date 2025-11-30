@@ -1,7 +1,5 @@
 #!/bin/bash
 
-sed -i 's/"port": 8787/"port": 8686/' /opt/xray2025/bin/config.json
-
 systemctl daemon-reload
 
 # 启用并重启v2ray服务
